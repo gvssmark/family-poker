@@ -1,0 +1,11 @@
+{
+  "name": "Family Poker",
+  "short_name": "Family Poker",
+  "description": "Private Texas Hold'em game for family members",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b5d2a",
+  "theme_color": "#0b5d2a",
+  "orientation": "portrait",
+  "icons": []
+}
