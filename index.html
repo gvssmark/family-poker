@@ -1,143 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1">
+      content="width=device-width,
+               initial-scale=1,
+               maximum-scale=1,
+               user-scalable=no">
 
 <title>Family Poker</title>
 
 <link rel="manifest" href="manifest.json">
+
 <meta name="theme-color" content="#075b2a">
 
 <style>
+
+/* ==============================
+   GENERAL
+================================ */
 
 * {
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
+
     margin: 0;
     padding: 0;
+
     width: 100%;
     height: 100%;
+
     overflow: hidden;
-    font-family: Arial, sans-serif;
+
+    font-family:
+        Arial,
+        sans-serif;
+
     background: #075b2a;
 }
 
 body {
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 }
 
-/* =========================
+
+/* ==============================
    POKER TABLE
-========================= */
+================================ */
 
 .table {
+
     position: relative;
 
     width: min(96vw, 1000px);
+
     height: min(88vh, 620px);
 
     background: #087a38;
 
     border: 12px solid #542f16;
+
     border-radius: 50%;
 
     box-shadow:
-        inset 0 0 35px rgba(0,0,0,.5),
-        0 10px 30px rgba(0,0,0,.5);
+
+        inset 0 0 35px
+        rgba(0,0,0,.5),
+
+        0 10px 30px
+        rgba(0,0,0,.5);
 }
 
-/* =========================
+
+/* ==============================
    TOP PLAYERS
-========================= */
+================================ */
 
 .top-players {
+
     position: absolute;
 
     top: 4%;
-    left: 5%;
-    right: 5%;
+
+    left: 4%;
+    right: 4%;
 
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        flex-start;
 }
 
-/* Individual player */
+
+/* ==============================
+   PLAYER
+================================ */
 
 .player {
-    width: 100px;
+
+    width: 85px;
 
     text-align: center;
 
     color: white;
 
-    font-size: 13px;
+    font-size: 12px;
 }
 
-/* Player photo */
+
+/* ==============================
+   AVATAR
+================================ */
 
 .avatar {
+
     width: 58px;
+
     height: 58px;
 
     border-radius: 50%;
 
     object-fit: cover;
 
+    display: block;
+
+    margin: auto;
+
     border: 3px solid white;
 
-    box-shadow:
-        0 2px 7px rgba(0,0,0,.6);
+    background:
+        #777;
 
-    background: #777;
+    box-shadow:
+        0 2px 7px
+        rgba(0,0,0,.6);
 }
 
-/* Player name */
+
+/* clickable avatar */
+
+.avatar.clickable {
+
+    cursor: pointer;
+}
+
+
+/* ==============================
+   PLAYER NAME
+================================ */
 
 .player-name {
+
     margin-top: 4px;
 
     font-weight: bold;
 
     white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
 }
 
-/* Chips */
 
 .stack {
+
     margin-top: 2px;
 
-    font-size: 12px;
+    font-size: 11px;
 
     opacity: .9;
 }
 
-/* =========================
-   COMMUNITY CARDS
-========================= */
 
-.community {
+/* ==============================
+   POT
+================================ */
+
+.pot {
+
     position: absolute;
 
-    top: 45%;
+    top: 27%;
+
     left: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translateX(-50%);
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    background:
+        rgba(0,0,0,.18);
+
+    padding:
+        5px 14px;
+
+    border-radius: 20px;
+
+    white-space: nowrap;
+}
+
+
+/* ==============================
+   COMMUNITY CARDS
+================================ */
+
+.community {
+
+    position: absolute;
+
+    top: 44%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%,-50%);
 
     display: flex;
 
-    gap: 7px;
+    gap: 6px;
 }
 
+
 .card {
+
     width: 55px;
+
     height: 78px;
 
     background: white;
@@ -149,6 +256,7 @@ body {
     display: flex;
 
     justify-content: center;
+
     align-items: center;
 
     font-size: 27px;
@@ -156,110 +264,150 @@ body {
     font-weight: bold;
 
     box-shadow:
-        0 2px 5px rgba(0,0,0,.5);
+        0 2px 5px
+        rgba(0,0,0,.5);
 }
+
 
 .card.red {
-    color: #d00000;
+
+    color:
+        #d00000;
 }
 
-/* =========================
-   POT
-========================= */
 
-.pot {
-    position: absolute;
-
-    top: 28%;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    color: white;
-
-    font-size: 18px;
-
-    font-weight: bold;
-
-    background: rgba(0,0,0,.15);
-
-    padding: 4px 12px;
-
-    border-radius: 15px;
-}
-
-/* =========================
-   YOU
-========================= */
+/* ==============================
+   YOUR SEAT
+================================ */
 
 .you {
+
     position: absolute;
 
-    bottom: 5%;
+    bottom: 4%;
 
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     text-align: center;
 
     color: white;
 }
 
+
+.you-avatar {
+
+    width: 65px;
+
+    height: 65px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    display: block;
+
+    margin:
+        0 auto 4px;
+
+    border:
+        3px solid white;
+
+    background:
+        #555;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0,0,0,.7);
+}
+
+
+.you-hint {
+
+    font-size: 10px;
+
+    opacity: .85;
+
+    margin-bottom: 3px;
+}
+
+
 .you-name {
-    font-size: 16px;
+
+    font-size: 15px;
 
     font-weight: bold;
-
-    margin-bottom: 4px;
 }
+
 
 .you-stack {
-    font-size: 14px;
 
-    margin-top: 4px;
+    font-size: 12px;
+
+    margin-top: 3px;
 }
 
-/* Your cards */
+
+/* ==============================
+   YOUR CARDS
+================================ */
 
 .hole-cards {
+
     display: flex;
 
-    justify-content: center;
+    justify-content:
+        center;
 
     gap: 7px;
+
+    margin-top: 5px;
 }
 
+
 .hole-cards .card {
+
     width: 52px;
+
     height: 72px;
 
     font-size: 25px;
 }
 
-/* =========================
+
+/* ==============================
    ACTION BUTTONS
-========================= */
+================================ */
 
 .actions {
+
     position: fixed;
 
     bottom: 10px;
 
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     display: flex;
 
     gap: 8px;
+
+    z-index: 20;
 }
 
+
 .actions button {
+
     border: none;
 
-    padding: 10px 18px;
+    padding:
+        10px 18px;
 
     border-radius: 7px;
 
@@ -270,119 +418,337 @@ body {
     cursor: pointer;
 }
 
+
 .fold {
-    background: #c62828;
+
+    background:
+        #c62828;
+
     color: white;
 }
+
 
 .call {
-    background: #1976d2;
+
+    background:
+        #1976d2;
+
     color: white;
 }
 
+
 .raise {
-    background: #f9a825;
+
+    background:
+        #f9a825;
+
     color: black;
 }
 
-/* =========================
+
+/* ==============================
+   PROFILE MODAL
+================================ */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,.75);
+
+    display: none;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    z-index: 100;
+}
+
+
+.modal.show {
+
+    display: flex;
+}
+
+
+.profile-box {
+
+    width: min(90vw, 360px);
+
+    background: white;
+
+    color: #222;
+
+    border-radius: 15px;
+
+    padding: 22px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.6);
+}
+
+
+.profile-box h2 {
+
+    margin-top: 0;
+}
+
+
+.preview {
+
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    background: #ddd;
+
+    border: 4px solid #075b2a;
+
+    margin:
+        5px auto 15px;
+
+    display: block;
+}
+
+
+.name-input {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border:
+        1px solid #aaa;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+
+    margin-bottom: 12px;
+}
+
+
+.modal button {
+
+    width: 100%;
+
+    padding: 11px;
+
+    margin-top: 7px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.camera-button {
+
+    background:
+        #075b2a;
+
+    color: white;
+}
+
+
+.save-button {
+
+    background:
+        #1976d2;
+
+    color: white;
+}
+
+
+.cancel-button {
+
+    background:
+        #ddd;
+
+    color: #222;
+}
+
+
+/* Hidden camera input */
+
+#photoInput {
+
+    display: none;
+}
+
+
+/* ==============================
    MOBILE
-========================= */
+================================ */
 
 @media (max-width: 600px) {
 
     .table {
+
         width: 99vw;
+
         height: 82vh;
 
         border-width: 8px;
     }
 
+
     .top-players {
+
         top: 3%;
+
         left: 2%;
+
         right: 2%;
     }
 
+
     .player {
-        width: 65px;
-        font-size: 11px;
+
+        width: 62px;
+
+        font-size: 10px;
     }
 
+
     .avatar {
-        width: 45px;
-        height: 45px;
+
+        width: 44px;
+
+        height: 44px;
 
         border-width: 2px;
     }
 
+
     .stack {
-        font-size: 10px;
+
+        font-size: 9px;
     }
 
+
+    .pot {
+
+        top: 27%;
+
+        font-size: 13px;
+    }
+
+
     .community {
+
         top: 44%;
 
         gap: 4px;
     }
 
+
     .card {
+
         width: 39px;
+
         height: 56px;
 
         font-size: 19px;
     }
 
-    .pot {
-        top: 28%;
-
-        font-size: 14px;
-    }
-
-    .hole-cards .card {
-        width: 42px;
-        height: 60px;
-
-        font-size: 21px;
-    }
 
     .you {
-        bottom: 5%;
+
+        bottom: 4%;
     }
+
+
+    .you-avatar {
+
+        width: 54px;
+
+        height: 54px;
+    }
+
 
     .you-name {
-        font-size: 14px;
-    }
-
-    .you-stack {
-        font-size: 12px;
-    }
-
-    .actions button {
-        padding: 8px 12px;
 
         font-size: 13px;
     }
+
+
+    .you-stack {
+
+        font-size: 10px;
+    }
+
+
+    .hole-cards {
+
+        margin-top: 3px;
+    }
+
+
+    .hole-cards .card {
+
+        width: 40px;
+
+        height: 57px;
+
+        font-size: 20px;
+    }
+
+
+    .actions button {
+
+        padding:
+            8px 12px;
+
+        font-size: 13px;
+    }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- ==================================
+     POKER TABLE
+================================== -->
+
 <div class="table">
 
-    <!-- =========================
-         FIVE OTHER PLAYERS
-    ========================== -->
+
+    <!-- FIVE OTHER PLAYERS -->
 
     <div class="top-players">
+
 
         <div class="player">
 
             <img
                 class="avatar"
-                src="images/player1.JPG"
+                src=""
                 alt="Player 1">
 
             <div class="player-name">
@@ -400,7 +766,7 @@ body {
 
             <img
                 class="avatar"
-                src="images/player2.JPG"
+                src=""
                 alt="Player 2">
 
             <div class="player-name">
@@ -408,7 +774,7 @@ body {
             </div>
 
             <div class="stack">
-                9,800
+                10,000
             </div>
 
         </div>
@@ -418,7 +784,7 @@ body {
 
             <img
                 class="avatar"
-                src="images/player3.JPG"
+                src=""
                 alt="Player 3">
 
             <div class="player-name">
@@ -426,7 +792,7 @@ body {
             </div>
 
             <div class="stack">
-                10,200
+                10,000
             </div>
 
         </div>
@@ -436,7 +802,7 @@ body {
 
             <img
                 class="avatar"
-                src="images/player4.JPG"
+                src=""
                 alt="Player 4">
 
             <div class="player-name">
@@ -444,7 +810,7 @@ body {
             </div>
 
             <div class="stack">
-                9,700
+                10,000
             </div>
 
         </div>
@@ -454,7 +820,7 @@ body {
 
             <img
                 class="avatar"
-                src="images/player5.JPG"
+                src=""
                 alt="Player 5">
 
             <div class="player-name">
@@ -467,67 +833,108 @@ body {
 
         </div>
 
+
     </div>
 
 
-    <!-- =========================
-         POT
-    ========================== -->
+    <!-- POT -->
 
     <div class="pot">
+
         Pot: 600 chips
+
     </div>
 
 
-    <!-- =========================
-         COMMUNITY CARDS
-    ========================== -->
+    <!-- COMMUNITY CARDS -->
 
     <div class="community">
 
-        <div class="card red">A♥</div>
+        <div class="card red">
+            A♥
+        </div>
 
-        <div class="card">K♣</div>
+        <div class="card">
+            K♣
+        </div>
 
-        <div class="card red">7♦</div>
+        <div class="card red">
+            7♦
+        </div>
 
-        <div class="card">?</div>
+        <div class="card">
+            ?
+        </div>
 
-        <div class="card">?</div>
+        <div class="card">
+            ?
+        </div>
 
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================
          YOU
-    ========================== -->
+    ================================== -->
 
     <div class="you">
 
-        <div class="you-name">
-            You
+
+        <img
+            id="myAvatar"
+            class="you-avatar"
+            src=""
+            alt="Your photo"
+            title="Tap to take your selfie">
+
+
+        <div class="you-hint">
+
+            Tap photo to take selfie
+
         </div>
+
+
+        <div
+            id="myName"
+            class="you-name">
+
+            You
+
+        </div>
+
+
+        <!-- YOUR TWO CARDS -->
 
         <div class="hole-cards">
 
-            <div class="card">Q♠</div>
+            <div class="card">
+                Q♠
+            </div>
 
-            <div class="card red">J♥</div>
+            <div class="card red">
+                J♥
+            </div>
 
         </div>
+
 
         <div class="you-stack">
+
             9,400 chips
+
         </div>
 
+
     </div>
+
 
 </div>
 
 
-<!-- =========================
+<!-- ==================================
      ACTION BUTTONS
-========================== -->
+================================== -->
 
 <div class="actions">
 
@@ -546,31 +953,337 @@ body {
 </div>
 
 
+<!-- ==================================
+     PROFILE MODAL
+================================== -->
+
+<div
+    id="profileModal"
+    class="modal">
+
+
+    <div class="profile-box">
+
+
+        <h2>
+            Your Player Profile
+        </h2>
+
+
+        <img
+            id="preview"
+            class="preview"
+            src=""
+            alt="Photo preview">
+
+
+        <input
+            id="nameInput"
+            class="name-input"
+            type="text"
+            maxlength="20"
+            placeholder="Enter your name">
+
+
+        <button
+            class="camera-button"
+            onclick="openCamera()">
+
+            📷 Take Selfie
+
+        </button>
+
+
+        <button
+            class="save-button"
+            onclick="saveProfile()">
+
+            Save Profile
+
+        </button>
+
+
+        <button
+            class="cancel-button"
+            onclick="closeProfile()">
+
+            Cancel
+
+        </button>
+
+
+        <!-- Camera/file input -->
+
+        <input
+            id="photoInput"
+            type="file"
+            accept="image/*"
+            capture="user">
+
+    </div>
+
+</div>
+
+
 <script>
 
-if ("serviceWorker" in navigator) {
+/* ==================================
+   PROFILE
+================================== */
 
-    window.addEventListener("load", () => {
+let myPhoto = "";
 
-        navigator.serviceWorker
-            .register("./sw.js")
+let myPlayerName = "You";
 
-            .then(() => {
-                console.log("Service Worker registered");
-            })
 
-            .catch(error => {
-                console.error(
-                    "Service Worker error:",
-                    error
-                );
-            });
+const myAvatar =
+    document.getElementById("myAvatar");
 
-    });
+const preview =
+    document.getElementById("preview");
+
+const profileModal =
+    document.getElementById("profileModal");
+
+const nameInput =
+    document.getElementById("nameInput");
+
+const photoInput =
+    document.getElementById("photoInput");
+
+const myName =
+    document.getElementById("myName");
+
+
+/* ==================================
+   OPEN PROFILE
+================================== */
+
+myAvatar.addEventListener(
+    "click",
+    openProfile
+);
+
+
+function openProfile() {
+
+    nameInput.value =
+        myPlayerName === "You"
+            ? ""
+            : myPlayerName;
+
+    if (myPhoto) {
+
+        preview.src =
+            myPhoto;
+
+    }
+    else {
+
+        preview.removeAttribute("src");
+
+    }
+
+    profileModal.classList.add("show");
+}
+
+
+/* ==================================
+   CLOSE PROFILE
+================================== */
+
+function closeProfile() {
+
+    profileModal.classList.remove(
+        "show"
+    );
+}
+
+
+/* ==================================
+   CAMERA
+================================== */
+
+function openCamera() {
+
+    photoInput.click();
+
+}
+
+
+/* ==================================
+   PHOTO SELECTED
+================================== */
+
+photoInput.addEventListener(
+    "change",
+    function () {
+
+        const file =
+            this.files[0];
+
+        if (!file)
+            return;
+
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload =
+            function (event) {
+
+                myPhoto =
+                    event.target.result;
+
+                preview.src =
+                    myPhoto;
+
+            };
+
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+
+/* ==================================
+   SAVE PROFILE
+================================== */
+
+function saveProfile() {
+
+    const enteredName =
+        nameInput.value.trim();
+
+
+    if (enteredName) {
+
+        myPlayerName =
+            enteredName;
+
+    }
+    else {
+
+        myPlayerName =
+            "You";
+
+    }
+
+
+    myName.textContent =
+        myPlayerName;
+
+
+    if (myPhoto) {
+
+        myAvatar.src =
+            myPhoto;
+
+    }
+
+
+    /* Save locally for testing */
+
+    localStorage.setItem(
+        "familyPokerName",
+        myPlayerName
+    );
+
+
+    if (myPhoto) {
+
+        localStorage.setItem(
+            "familyPokerPhoto",
+            myPhoto
+        );
+
+    }
+
+
+    closeProfile();
+
+}
+
+
+/* ==================================
+   RESTORE PROFILE
+================================== */
+
+const savedName =
+    localStorage.getItem(
+        "familyPokerName"
+    );
+
+const savedPhoto =
+    localStorage.getItem(
+        "familyPokerPhoto"
+    );
+
+
+if (savedName) {
+
+    myPlayerName =
+        savedName;
+
+    myName.textContent =
+        savedName;
+
+}
+
+
+if (savedPhoto) {
+
+    myPhoto =
+        savedPhoto;
+
+    myAvatar.src =
+        savedPhoto;
+
+}
+
+
+/* ==================================
+   SERVICE WORKER
+================================== */
+
+if (
+    "serviceWorker"
+    in navigator
+) {
+
+    window.addEventListener(
+        "load",
+        () => {
+
+            navigator.serviceWorker
+                .register("./sw.js")
+
+                .then(() => {
+
+                    console.log(
+                        "Service Worker registered"
+                    );
+
+                })
+
+                .catch(error => {
+
+                    console.error(
+                        "Service Worker error:",
+                        error
+                    );
+
+                });
+
+        }
+    );
 
 }
 
 </script>
 
 </body>
+
 </html>
